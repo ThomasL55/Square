@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>How to Play</h3>
+        </div>
+        <div class="card-body">
+            <h4>Game Rules</h4>
+            <ol class="mb-4">
+                <li>Watch carefully as the game displays a sequence of colored squares</li>
+                <li>After the sequence ends, repeat the pattern by clicking/tapping the squares in the same order</li>
+                <li>Each correct sequence adds to your score</li>
+                <li>If you make a mistake, the game ends and shows your final score</li>
+                <li>Click "Start Game" to begin a new game</li>
+            </ol>
+
+            <h4>Controls</h4>
+            <ul class="mb-4">
+                <li><strong>Mouse/Touch:</strong> Click or tap directly on the squares</li>
+                {% if settings.use_keyboard %}
+                <li><strong>Keyboard:</strong>
+                    <ul>
+                        <li>Arrow keys to move the selection</li>
+                        <li>Space bar to select a square</li>
+                        <li>ESC to reset current attempt</li>
+                    </ul>
+                </li>
+                {% endif %}
+            </ul>
+
+            <h4>Accessibility Features</h4>
+            <ul>
+                <li><strong>High Contrast Mode:</strong> Enhances visibility with stronger color contrast</li>
+                <li><strong>Keyboard Controls:</strong> Full game control without using a mouse</li>
+                <li><strong>Sound Effects:</strong> Audio feedback for game actions</li>
+                <li><strong>Pattern Speed:</strong> Adjustable timing for pattern display</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

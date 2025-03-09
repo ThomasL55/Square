@@ -1,0 +1,44 @@
+.canvas-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#gameCanvas {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    border: 2px solid var(--bs-border-color);
+    background-color: var(--bs-dark);
+    touch-action: none; /* Prevents scrolling while touching the canvas */
+}
+
+.card {
+    background-color: var(--bs-dark);
+    border-color: var(--bs-border-color);
+}
+
+.card-header {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-bottom-color: var(--bs-border-color);
+}
+
+.instructions {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.instructions li {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Make buttons more touch-friendly on mobile */
+@media (max-width: 768px) {
+    .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 1.1rem;
+    }
+}

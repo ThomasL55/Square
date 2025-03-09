@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="card mb-4">
+        <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3>Pattern Match Game</h3>
+                <div class="score-container">
+                    Score: <span id="score" class="badge bg-primary">0</span>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="canvas-container">
+                <canvas id="gameCanvas" width="600" height="600"
+                    data-use-keyboard="{{ 'true' if settings.use_keyboard else 'false' }}"
+                    data-high-contrast="{{ 'true' if settings.high_contrast else 'false' }}"
+                    data-sound-enabled="{{ 'true' if settings.sound_enabled else 'false' }}"
+                    data-game-speed="{{ settings.game_speed }}"></canvas>
+            </div>
+            <div class="mt-3 text-center">
+                <button id="startGame" class="btn btn-success btn-lg">Start Game</button>
+                <button id="resetGame" class="btn btn-secondary btn-lg ms-2">Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h4>How to Play</h4>
+        </div>
+        <div class="card-body">
+            <p>Watch the pattern of highlighted squares and then repeat it!</p>
+            <ul class="instructions">
+                <li>Touch/Click: Tap or click squares to match the pattern</li>
+                {% if settings.use_keyboard %}
+                <li>Keyboard: Use arrow keys to move and Space to select</li>
+                <li>Press ESC to reset the current pattern</li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/audio.js') }}"></script>
+<script src="{{ url_for('static', filename='js/game.js') }}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const game = new Game();
+        window.gameInstance = game;
+    });
+</script>
+{% endblock %}
